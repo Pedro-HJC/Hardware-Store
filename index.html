@@ -1,145 +1,1251 @@
-<HTML>
-<HEAD>
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Hardware Store</title>
-    
-    <style> 
+
+
+
+    <style>
+
+        @media only screen and (max-width: 600px) {
+
+    .navigation {
+
+        flex-direction: column;
+
+    }
+
+    .navigation a {
+
+        padding: 10px;
+
+    }
+
+}
+
+.product img {
+
+    max-width: 100%;
+
+    height: auto;
+
+}
+
+
+
         body {
-            background: rgb(255,255,255);
-        }
-    
-        div.quadrado {
-            background: rgb(255,60,60);
-            width: 100%;
-            height: 10px;
+
+            background-color: #ffffff;
+
+            margin: 0;
+
+            padding: 0;
+
+            font-family: Arial, sans-serif;
+
         }
 
-        div.barra {
-            background: rgb(100,100,100);
-            width: 100%;
-            height: 50px;
+
+
+        .header {
+
+            background-color: #ff3c3c;
+
+            text-align: center;
+
+            padding: 20px 0;
+
         }
-        
-        p.barra {
-            color: rgb(255,255,255);
-            
+
+
+
+        .logo img {
+
+            width: 200px;
+
+            border-radius: 15%;
+
         }
-        
-        .left {
-            position: absolute;
-            left: 10%;
-            
+
+
+
+        .navigation {
+
+            background-color: #646464;
+
+            overflow: hidden;
+
+            display: flex;
+
+            justify-content: center;
+
         }
-        
-        .center {
-            position: absolute;
-            left: 44%;
-            
+
+
+
+        .navigation a {
+
+            color: #ffffff;
+
+            text-align: center;
+
+            padding: 14px 16px;
+
+            text-decoration: none;
+
+            font-size: 17px;
+
         }
-        
-        .right {
-            position: relative;
-            right: 10%;
-            
+
+
+
+        #cart {
+
+            position: fixed;
+
+            top: 20px;
+
+            right: 20px;
+
+            background-color: #ffffff;
+
+            border: 2px solid #000000;
+
+            padding: 10px;
+
         }
-        
-        div.box-cpu {
-            background: rgb(100,100,100);
-            height: 150px;
-            
+
+
+
+        #cart h2 {
+
+            margin-top: 0;
+
         }
-        
-        .cpu {
-            width: 260px;
-            display: inline-block;
+
+
+
+        #cart-items {
+
+            list-style-type: none;
+
+            padding: 0;
+
+            margin: 0;
+
         }
+
+
+
+        #cart-items li {
+
+            margin-bottom: 5px;
+
+        }
+
+
+
+        .navigation a:hover {
+
+            background-color: #111111;
+
+        }
+
+
+
+        .main-content {
+
+            padding: 20px;
+
+            display: flex;
+
+        }
+
+
+
+        .sidebar {
+
+            width: 150px;
+
+            height: 50%;
+
+            background-color: #f2f2f2;
+
+            padding: 20px;
+
+        }
+
+
+
+        .sidebar a {
+
+            display: block;
+
+            color: #000000;
+
+            padding: 10px 0;
+
+            text-decoration: none;
+
+        }
+
+
+
+        .sidebar a:hover {
+
+            background-color: #ddd;
+
+        }
+
+
+
+        .content {
+
+            flex: 1;
+
+            padding-left: 20px;
+
+        }
+
+       
+
+        .comment {
+
+            border: 1px solid #ccc;
+
+            border-radius: 5px;
+
+            padding: 10px;
+
+            margin-bottom: 20px;
+
+            opacity: 0;
+
+            animation: fadeInOut 13s infinite; /* A animação se repete infinitamente */
+
+        }
+
+
+
+        /* Estilos CSS para o autor do comentário */
+
+        .comment p.author {
+
+            font-style: italic;
+
+            text-align: right;
+
+        }
+
+
+
+        /* Keyframes para a animação */
+
+        @keyframes fadeInOut {
+
+            0%, 20%, 95%, 100% {
+
+                opacity: 0;
+
+                transform: translateY(20px);
+
+            }
+
+            25%, 90% {
+
+                opacity: 1;
+
+                transform: translateY(0);
+
+            }
+
+        }
+
+
+
+        @keyframes scrollAnimation {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(20px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+
+            }
+
+        }
+
+
+
+        /* Adicione a classe de animação aos elementos que deseja animar */
+
+        .animated-on-scroll {
+
+            animation: scrollAnimation 0.5s ease-out;
+
+        }
+
+
+
+
+
+        /* Adicione a classe de animação aos elementos que deseja animar */
+
+        .animated-on-scroll {
+
+            animation: scrollAnimation 0.5s ease-out;
+
+        }
+
+
+
+        .comment {
+
+            transition: opacity 0.5s ease;
+
+        }
+
+
+
+        .hardware-section {
+
+            margin-top: 50px;
+
+            border-top: 2px solid #646464;
+
+            padding-top: 20px;
+
+        }
+
+
+
+        .hardware-section h1 {
+
+            color: #646464;
+
+            border-bottom: 2px solid #646464;
+
+            padding-bottom: 10px;
+
+            margin-top: 0;
+
+            font-size: 24px;
+
+        }
+
+
+
+        .hardware-section p {
+
+            color: #646464;
+
+            margin-bottom: 10px;
+
+            font-size: 16px;
+
+            line-height: 1.6;
+
+        }
+
+
+
+        .product {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-top: 20px;
+
+            border: 1px solid #ddd;
+
+            padding: 10px;
+
+            border-radius: 5px;
+
+        }
+
+
+
+        .product img {
+
+            width: 150px;
+
+            cursor: pointer;
+
+        }
+
+
+
+        .product img:hover {
+
+            transform: scale(1.1);
+
+            transition: transform 0.3s ease;
+
+        }
+
+
+
+        .product-info {
+
+            text-align: center;
+
+            flex: 1;
+
+        }
+
+
+
+        /* Zoom effect */
+
+        .product img.zoomed {
+
+            transform: scale(1.5);
+
+            z-index: 1;
+
+        }
+
         
+
+        .encomenda {
+
+            width:100%;
+
+            height: 50%
+
+        }
+
+
+
+        .fade-in {
+
+            opacity: 0;
+
+            transition: opacity 1s ease-out;
+
+        }
+
+
+
     </style>
-</HEAD>
 
-<BODY>
+</head>
+
+<body>
+
+
+
+<div class="header">
 
     <div class="logo">
-        <center><img src="logo.jpg" width="200px" /></center>
-    </div>
-<hr>
 
-    <div class="quadrado"></div>
-    <br/>
-    <div class="barra">
+        <img src="https://raw.githubusercontent.com/Pedro-HJC/Hardware-Store/main/logo.jpg" alt="Hardware Store Logo">
+
+    </div>
+
+</div>
+
+
+
+<div class="navigation">
+
+    <a href="#inicio">Início</a>
+
+    <a href="#produtos">Veja alguns produtos</a>
+
+    <a href="#sobre">Sobre nossa loja</a>
+
+</div>
+
+
+
+<div class="main-content">
+
+    <div class="sidebar">
+
+        <a href="#produtos">Processadores</a>
+
+        <a href="#placas-video">Placas de Vídeo</a>
+
+        <a href="#placas-mae">Placas Mãe</a>
+
+        <a href="#ssd">SSD</a>
+
+        <a href="#gabinetes">Gabinetes</a>
+
+        <a href="#Kit Gamer">Kit Gamer</a>
+
+        <a href="#Envio Securo e Rápido">Sobre os produtos em envio</a>
+
+        <a href="#Fretes">Funcionamento dos Fretes</a>
+
+    </div>
+
     
-    <div class="left">
-        <a href="#inicio">
-            <p class="barra">
-                inicio
+
+    <div class="content">
+
+        <div class="hardware-section" id="inicio">
+
+            <h1>Hardware Store</h1>
+
+            <p>
+
+                Bem-vindo à Hardware Store, onde sua busca por qualidade e conveniência encontra seu destino definitivo! Aqui na nossa loja virtual, estamos prontos para atender todas as suas necessidades de hardware e ferramentas, desde os projetos mais simples até os desafios mais complexos.
+
+
+
+                Nossa missão é proporcionar a você uma experiência de compra sem igual, onde a variedade de produtos de alta qualidade se une à facilidade de encontrar exatamente o que você precisa. Com nosso catálogo abrangente, você pode confiar em nós para fornecer as ferramentas certas para qualquer trabalho.
+
+
+
+                E não se preocupe com a logística! Nossa entrega rápida e confiável leva os produtos diretamente até você, onde quer que esteja no Brasil. Dessa forma, você pode dedicar mais tempo aos seus projetos e menos tempo se preocupando com os detalhes logísticos.
+
+
+
+                Na Hardware Store, não estamos apenas vendendo produtos; estamos construindo parcerias duradouras com nossos clientes. Nossa equipe está sempre à disposição para fornecer orientação especializada e suporte, garantindo que você tenha tudo o que precisa para alcançar o sucesso em seus empreendimentos.
+
+
+
+                Então, não espere mais! Explore nossa loja virtual hoje mesmo e descubra como podemos ajudar a transformar suas ideias em realidade. Na Hardware Store, estamos aqui para tornar seus projetos mais simples, mais eficientes e mais bem-sucedidos do que nunca.
+
             </p>
-        </a>
-    </div>
-    
-    <div class="center">
-        <a href="#meio">
-            <p class="barra">
-                PEÇAS PC
+
+        </div>
+
+
+
+        <div class="hardware-section" id="produtos">
+
+            <h1>Veja alguns produtos</h1>
+
+            <p>
+
+                Quer maximizar seu desempenho como gamer, alcançar níveis profissionais ou simplesmente construir o PC dos seus sonhos? A Hardware Store é o seu destino número um para todas as suas necessidades de hardware! Com uma seleção incomparável dos melhores componentes do mercado, estamos aqui para elevar sua experiência de jogo a um novo patamar de excelência. De placas de vídeo poderosas a processadores de última geração, temos tudo o que você precisa para construir o computador perfeito e conquistar a vitória. Não aceite menos do que o melhor. Escolha a Hardware Store e domine o mundo dos jogos como nunca antes!
+
             </p>
-        </a>
-    </div>  
-                               
-    <div class="right">
-        <a href="#fim">
-            <p class="barra">
-                fim
-            </p>
-        </a>
-    </div>
-    
-    </div>
-    
-    
-    <div class="text">
-        <h1><div id = "inicio">Hardware-Store</div></h1>
-        <h3>
-            <p>Bem-vindo à "Hardware-Store" - sua loja virtual especializada em atender todas as suas necessidades de hardware e ferramentas! Nossa loja oferece uma ampla gama de produtos de alta qualidade, desde ferramentas manuais até equipamentos elétricos.</p>
-        
-            <p>Na "Hardware-Store" virtual, você encontrará uma experiência de compra conveniente e intuitiva, com um catálogo abrangente que atende tanto a entusiastas de projetos DIY quanto a profissionais do ramo. Nossa equipe dedicada está sempre disponível para oferecer suporte e orientação, garantindo que você encontre os produtos ideais para concluir seus projetos com sucesso.</p>
-        
-            <p>Além disso, nossa loja virtual oferece entrega rápida e confiável em todo o Brasil, para que você possa receber seus produtos no conforto da sua casa ou local de trabalho. Com a "Hardware-Store", você pode contar com a conveniência das compras online sem abrir mão da qualidade e do atendimento personalizado.</p>
-        
-            <p>Estamos comprometidos em fornecer a melhor experiência de compra para todos os nossos clientes, tornando a "Hardware-Store" o destino definitivo para suas necessidades de hardware e ferramentas. Explore nossa loja virtual hoje mesmo e descubra como podemos ajudar a tornar seus projetos uma realidade.
-        <br/>
-        
-        </h3>
-        <br/>
-        <h1><div id = "meio">Hardware interno</div></h1>
-        <h3>    
-            <p>Seja você um gamer experiente, um profissional  ou apenas queira montar seu PC gamer, a Hardware Store tem tudo o que você precisa para montar o computador perfeito. Oferecemos uma ampla variedade de hardware de alta qualidade, incluindo:</p>
 
-            <a href="#cpu"><p>CPUs (processadores)</p></a>
+            <div class="product">
 
-            <p>Placas-mãe</p>
+                <img src="https://www.umpoukodetudo.com.br/media/catalog/product/cache/1/image/1000x/9df78eab33525d08d6e5fb8d27136e95/7/2/723863780_63b96b6744204_processador-intel-core-i9-12900k_1.jpg_4.jpg" alt="Intel I9 Core">
 
-            <p>Memória RAM</p>
+                <div class="product-info">
 
-            <p>Armazenamento (HDs e SSDs)</p>
+                    <p>R$ 500,00</p>
 
-            <p>Placas de vídeo</p>
+                </div>
 
-            <p>Fontes</p>
-
-            <p>Gabinetes</p>
-
-            <p>Periféricos (teclados, mouses, monitores)</p>
-
-            <p>Nossa equipe experiente está sempre disponível para ajudar você a escolher os componentes certos para suas necessidades e orçamento. Também oferecemos serviços de montagem para que você possa começar a usar seu novo computador o mais rápido possível.</p>
-        </h3>
-    <br/>
-        <h1><div id = "fim">Hardware externo</div></h1>
-            <div class="box-cpu">
-            <div class="cpu"><img class="cpu" id="cpu" src="https://www.pngall.com/wp-content/uploads/5/Intel-Computer-Processor-PNG-High-Quality-Image.png" alt="Imagem CPU-1"/><center>preço: R$ 400</center></div>
-            <div class="cpu"><img class="cpu" id="cpu" src="https://notebookspec.com/web/wp-content/uploads/2017/11/Intel-Core-i9-specs.jpg" alt="imagem CPU-2"/><center>Preço: R$ 530</center></div>
-            <div class="cpu"><img class="cpu" id="cpu" src="https://roadtovrlive-5ea0.kxcdn.com/wp-content/uploads/2017/06/intel-core-i9-x-series-747x420.jpg" alt="imagem CPU-3"/><center>Preço: R$ 610</center></div>
             </div>
+
+            <div class="product">
+
+                <img src="https://fujiokadistribuidor.vteximg.com.br/arquivos/ids/168357" alt="Intel Core I5">
+
+                <div class="product-info">
+
+                    <p>R$ 350,00</p>
+
+                </div>
+
+            </div>
+
+            <div class="product">
+
+                <img src="https://img.terabyteshop.com.br/produto/g/processador-intel-core-i7-9700kf-360ghz-490ghz-max-turbo-9-geracao-8-core-8-thread-lga-1151-bx80684i79700kf_77905.jpg" alt="Intel Core I7">
+
+                <div class="product-info">
+
+                    <p>R$ 450,00</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="hardware-section" id="placas-video">
+
+            <h1>Placas de Vídeo</h1>
+
+            <div class="product">
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTfXPXkVRzoIvhxrRYysIUQBkfYufFUL2-UA&usqp=CAU" alt="placa">
+
+                <div class="product-info">
+
+                    <p>R$ 2000,00</p>
+
+                </div>
+
+            </div>
+
+            <div class="product">
+
+                <img src="https://img.terabyteshop.com.br/produto/g/placa-de-video-gigabyte-nvidia-geforce-rtx-4090-aero-oc-24gb-gddr6x-dlss-ray-tracing-gv-n4090aero-oc-24gd_174261.jpg" alt="RTX 4090">
+
+                <div class="product-info">
+
+                    <p>R$ 3500,00</p>
+
+                </div>
+
+            </div>
+
+            <div class="product">
+
+                <img src="https://m.media-amazon.com/images/I/71Ub8WkXLxL._AC_UF894,1000_QL80_.jpg" alt="GTX 1080">
+
+                <div class="product-info">
+
+                    <p>R$ 1500,00</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        
+
+        <div class="hardware-section" id="placas-mae">
+
+            <h1>Placas Mãe</h1>
+
+            <div class="product">
+
+                <img src="https://images.kabum.com.br/produtos/fotos/165133/placa-mae-asus-tuf-gaming-a520m-plus-ii-amd-am4-matx-ddr4-90mb17g0-m0eay0_1632513548_gg.jpg" alt="Asus TUF GAMING A520M-PLUS II">
+
+                <div class="product-info">
+
+                    <p>R$ 700,00</p>
+
+                </div>
+
+            </div>
+
+            <div class="product">
+
+                <img src="https://images.kabum.com.br/produtos/fotos/114335/placa-mae-msi-mpg-b550-gaming-plus-amd-am4-atx_1594999681_gg.jpg" alt="Placa-Mãe MSI MPG B550 Gaming Plus">
+
+                <div class="product-info">
+
+                    <p>R$ 800,00</p>
+
+                </div>
+
+            </div>
+
+            <div class="product">
+
+                <img src="https://images.kabum.com.br/produtos/fotos/280944/placa-mae-msi-b560m-pro-e-lga-1200-matx-ddr4_1646832447_gg.jpg" alt="Placa Mãe MSI B560M PRO-E">
+
+                <div class="product-info">
+
+                    <p>R$ 600,00</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        
+
+        <div class="hardware-section" id="ssd">
+
+            <h1>SSD</h1>
+
+            <div class="product">
+
+                <img src="https://images.kabum.com.br/produtos/fotos/380745/ssd-kingston-nv2-1-tb-m-2-2280-pcie-nvme-leitura-2-100-mb-s-e-gravacao-1-700-mb-s-snv2s-1000g_1666033119_gg.jpg" alt="2TB">
+
+                <div class="product-info">
+
+                    <p>R$ 300,00</p>
+
+                </div>
+
+            </div>
+
+            <div class="product">
+
+                <img src="https://images.kabum.com.br/produtos/fotos/95217/ssd-kingston-a400-960gb-sata-leitura-500mb-s-gravacao-450mb-s-sa400s37-960g_1629126713_gg.jpg" alt="SSD 960 GB Kingston A400">
+
+                <div class="product-info">
+
+                    <p>R$ 250,00</p>
+
+                </div>
+
+            </div>
+
+            <div class="product">
+
+                <img src="https://images.kabum.com.br/produtos/fotos/459937/ssd-kingston-1920-gb-dc600m-mixed-use-sata-2-5-leitura-560mb-s-e-gravacao-530mb-s-sedc600m-1920g_1686054122_gg.jpg" alt="SSD Kingston 1920 GB DC600M Mixed-Use">
+
+                <div class="product-info">
+
+                    <p>R$ 500,00</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="hardware-section" id="gabinetes">
+
+            <h1>Gabinetes</h1>
+
+            <div class="product">
+
+                <img src="https://images.kabum.com.br/produtos/fotos/110045/gabinete-gamer-redragon-grapple-mid-tower-rgb-lateral-em-vidro-gc-607bk_1668180193_gg.jpg" alt="Gabinete Gamer Redragon Grapple">
+
+                <div class="product-info">
+
+                    <p>R$ 600,00</p>
+
+                </div>
+
+            </div>
+
+            <div class="product">
+
+                <img src="https://images.kabum.com.br/produtos/fotos/130989/gabinete-redragon-grapple-branco-gc-607wh_1605008049_gg.jpg" alt="Gabinete Redragon GRAPPLE">
+
+                <div class="product-info">
+
+                    <p>R$ 700,00</p>
+
+                </div>
+
+            </div>
+
+            <div class="product">
+
+                <img src="https://images.kabum.com.br/produtos/fotos/317087/gabinete-gamer-redragon-superion-mid-tower-lateral-em-vidro-temperado-preto-gc-mb211_1668180684_gg.jpg" alt="Gabinete Gamer Redragon Superion">
+
+                <div class="product-info">
+
+                    <p>R$ 800,00</p>
+
+                </div>
+
+            </div>
+
+            <div class="product">
+
+                <img src="https://images.kabum.com.br/produtos/fotos/473606/gabinete-gamer-rise-mode-galaxy-glass-standard-mid-tower-argb-atx-lateral-e-frente-em-vidro-10x-cooler-fan-preto-rm-ga-ggsb-argb_1703768116_gg.jpg" alt="Gabinete Gamer Rise Mode Galaxy Glass Standard">
+
+                <div class="product-info">
+
+                    <p>R$ 900,00</p>
+
+                </div>
+
+            </div>
+
+            <div class="product">
+
+                <img src="https://images.kabum.com.br/produtos/fotos/420418/gabinete-gamer-rise-mode-galaxy-glass-standard-white-10-fans-argb-rm-ga-ggsw-argb_1685731687_gg.jpg" alt="Gabinete Gamer Rise Mode Galaxy Glass Standard">
+
+                <div class="product-info">
+
+                    <p>R$ 950,00</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        
+
+        <div class="hardware-section" id="Kit Gamer">
+
+            <h1>Kit Gamer</h1>
+
+            <div class="product">
+
+                <img src="https://media.pichau.com.br/media/catalog/product/cache/2f958555330323e505eba7ce930bdf27/p/g/pg-ntn-rbw01.jpg" alt="Kit Gamer Mecanic">
+
+                <div class="product-info">
+
+                    <p>R$ 230,00</p>
+
+                </div>
+
+            </div>
+
+            <div class="product">
+
+                <img src="https://images.kabum.com.br/produtos/fotos/305084/kit-gamer-redragon-rgb-headset-surround-7-1-teclado-compacto-mouse-12400-dpi-preto-s125_1642794695_gg.jpg" alt="Kit Gamer Redragon RGB, Headset Lamia 2 Surround 7.1">
+
+                <div class="product-info">
+
+                    <p>R$ 320,00</p>
+
+                </div>
+
+            </div>
+
+            <div class="product">
+
+                <img src="https://media.pichau.com.br/media/catalog/product/cache/2f958555330323e505eba7ce930bdf27/c/b/cb-g059.jpg" alt="Kit Gamer">
+
+                <div class="product-info">
+
+                    <p>R$ 470,00</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
-    
 
-</BODY>
+</div>
 
-</HTML>
+
+
+<div class="content">
+
+    <div class="hardware-section comment" id="sobre">
+
+        <h1>Sobre nossa loja</h1>
+
+        <p>
+
+            Aviso Legal: Não nos responsabilizamos por problemas decorrentes do uso inadequado do produto após o período de garantia. O uso indevido pode resultar em danos, lesões ou perda de funcionalidade, os quais não serão cobertos pela garantia. Certifique-se sempre de seguir as instruções de uso e manutenção fornecidas com o produto para garantir sua segurança e desempenho adequado.
+
+        </p>
+
+    </div>
+
+
+
+<script>
+
+    document.querySelectorAll('.product img').forEach(image => {
+
+        image.addEventListener('click', function() {
+
+            this.classList.toggle('zoomed');
+
+        });
+
+    });
+
+</script>
+
+
+
+<div class="hardware-section comment" id="Envio Securo e Rápido">
+
+    <h1>Melhor loja do país</h1>
+
+    <p>
+
+        Caro Cliente Valioso,
+
+
+
+        Você já parou para pensar no valor do tempo? No mundo agitado de hoje, cada minuto economizado é uma oportunidade ganha. Na Hardware Store, entendemos que o tempo é um recurso precioso e é por isso que oferecemos o serviço de frete expresso para garantir que seus produtos cheguem até você em tempo recorde.
+
+        </br>
+
+        </br>
+
+        Imagine não precisar esperar dias intermináveis pelo seu pacote. Com o frete expresso, seus itens desejados estarão em suas mãos em apenas uma fração do tempo normal de entrega. Seja para uma ocasião especial, um projeto urgente ou simplesmente para satisfazer uma vontade imediata, o frete expresso permite que você desfrute dos seus produtos praticamente no mesmo instante em que os solicita.
+
+        </br>
+
+        </br>
+
+        Além disso, considere o valor monetário do seu tempo. Ao optar pelo frete expresso, você economiza tempo precioso que poderia ser gasto em atividades mais significativas e lucrativas. Seu tempo vale muito, e o frete expresso permite que você o utilize da maneira mais eficiente possível.
+
+        </br>
+
+        </br>
+
+        Entendemos que pode haver preocupações sobre o custo adicional do frete expresso. No entanto, gostaríamos de ressaltar que o tempo economizado e a conveniência proporcionada superam em muito o pequeno investimento adicional. Além disso, ao receber seus produtos mais rapidamente, você também pode agir mais rapidamente, seja aproveitando uma oportunidade de negócio ou simplesmente desfrutando dos seus itens novos imediatamente.
+
+        </br>
+
+        </br>
+
+        Na Hardware Store, estamos comprometidos em fornecer não apenas produtos excepcionais, mas também uma experiência de compra conveniente e eficiente. Escolher o frete expresso é mais do que uma simples opção de entrega rápida - é um investimento no seu tempo e na sua conveniência.
+
+    </p>
+
+    <img class="encomenda" src="https://d1ih8jugeo2m5m.cloudfront.net/2020/03/como-funciona-o-frete-para-lojas-online-e-quais-as-melhores-estrategias.jpg" alt="nossa empresa" style="max-width: 100%; height: auto;">
+
+</div>
+
+
+
+<div class="hardware-section comment" id="Fretes">
+
+    <h1>Sobre Nossos Fretes</h1>
+
+    <p> Na TimberTrack Transport, nós entendemos a importância de manter seus projetos de construção em movimento. Com uma vasta experiência no setor de transporte e logística, estamos comprometidos em fornecer serviços confiáveis e eficientes para atender às necessidades específicas da indústria de construção.
+
+        </br>
+
+        </br>
+
+        Oferecemos uma variedade de opções de frete para garantir que seus materiais cheguem ao seu destino final no momento certo e em condições impecáveis. Nosso serviço de frete expresso é ideal para situações em que a velocidade é essencial. Com opções de entrega em até 2 dias úteis, garantimos que seus materiais sejam entregues com rapidez e eficiência, para que você possa manter seus cronogramas de construção sem atrasos.
+
+        </br>
+
+        </br>
+
+        Para projetos com prazos menos urgentes, nosso serviço padrão de 7 dias oferece uma solução confiável e econômica. Mesmo com prazos mais flexíveis, mantemos o mesmo compromisso com a pontualidade e a integridade dos materiais transportados.
+
+        </br>
+
+        </br>
+
+        Além disso, reconhecemos que alguns projetos de construção requerem um planejamento logístico mais complexo. É por isso que oferecemos o serviço de frete agendado, com opções de entrega em até 40 dias. Essa opção é ideal para projetos de longo prazo que exigem uma programação precisa para o transporte de materiais.
+
+        </br>
+
+        </br>
+
+        Na TimberTrack Transport, priorizamos a satisfação do cliente e nos esforçamos para fornecer um serviço excepcional em todos os aspectos. Nossas equipes altamente treinadas estão sempre prontas para lidar com seus requisitos de transporte, garantindo uma experiência tranquila e sem complicações do início ao fim.
+
+        </br>
+
+        </br>
+
+        Conte conosco para fornecer soluções de transporte confiáveis e eficientes para todos os seus projetos de construção. Entre em contato conosco hoje mesmo para saber mais sobre nossos serviços e como podemos ajudar a impulsionar o sucesso de seus empreendimentos.</p>
+
+</div>
+
+</div>
+
+
+
+        <div class="content">
+
+            <!-- Seção de Comentários -->
+
+            <div class="hardware-section" id="comentarios">
+
+                <h1>Comentários de Clientes</h1>
+
+                <!-- Adicione a classe "comment" para cada comentário -->
+
+                <div class="comment">
+
+                    <p>Excelente loja! Processadores TOP DEMAIS!</p>
+
+                    <p class="author">- João Silva</p>
+
+                </div>
+
+                <div class="comment">
+
+                    <p>Atendimento excepcional! Chegou em 2 dias minhas peças</p>
+
+                    <p class="author">- Maria Oliveira</p>  
+
+                </div>
+
+                <div class="comment">
+
+                    <p>Incrível! Produtos de ótimos para um PC Gamer</p>
+
+                    <p class="author">- Frank Alves</p>  
+
+                </div>
+
+                <div class="comment">
+
+                    <p>Produtos bem baratos e ótimos</p>
+
+                    <p class="author">- Pedro Linboa</p>  
+
+                </div>
+
+                <div class="comment">
+
+                    <p>Agora posso jogar Devil May Cry 5 com rtx!</p>
+
+                    <p class="author">- Vergil</p>  
+
+                </div>
+
+                <!-- Adicione mais comentários conforme necessário -->
+
+            </div>
+
+        </div>
+
+        
+
+        <script>
+
+            document.addEventListener('DOMContentLoaded', function() {
+
+                const comments = document.querySelectorAll('.comment');
+
+                let currentCommentIndex = 0;
+
+                
+
+                function showNextComment() {
+
+                    if (currentCommentIndex < comments.length) {
+
+                        comments[currentCommentIndex].style.opacity = '1'; // Mostra o comentário
+
+                        currentCommentIndex++;
+
+                        setTimeout(hideCurrentComment, 3000); // Muda para o próximo comentário após 3 segundos
+
+                    }
+
+                }
+
+        
+
+                function hideCurrentComment() {
+
+                    if (currentCommentIndex > 0) {
+
+                        comments[currentCommentIndex - 1].style.opacity = '1'; // Esconde o comentário
+
+                        setTimeout(showNextComment, 500); // Aguarda 0.5 segundos antes de mostrar o próximo comentário
+
+                    }
+
+                }
+
+        
+
+                showNextComment(); // Inicia o ciclo de exibição de comentários
+
+            });
+
+        </script>
+
+
+
+<div class="content">
+
+    <!-- Adicione um carrinho de compras -->
+
+    <div id="cart">
+
+        <h2>Carrinho de Compras</h2>
+
+        <ul id="cart-items">
+
+            <!-- Os itens do carrinho serão adicionados dinamicamente aqui -->
+
+        </ul>
+
+        <p>Total: R$ <span id="cart-total">0.00</span></p>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+
+        // Seleciona todos os botões de produtos
+
+        const productButtons = document.querySelectorAll('.product');
+
+
+
+        // Adiciona um evento de clique a cada botão de produto
+
+        productButtons.forEach(button => {
+
+            button.addEventListener('click', () => {
+
+                addToCart(button); // Adiciona o produto ao carrinho quando clicado
+
+            });
+
+        });
+
+
+
+        // Função para adicionar produto ao carrinho
+
+        function addToCart(button) {
+
+            // Cria um novo item de carrinho com base nas informações do produto
+
+            const product = button.querySelector('img').alt;
+
+            const price = button.querySelector('.product-info p').textContent;
+
+            const newItem = document.createElement('li');
+
+            newItem.textContent = `${product} - ${price}`;
+
+            
+
+            // Adiciona o item ao carrinho
+
+            document.getElementById('cart-items').appendChild(newItem);
+
+            
+
+            // Atualiza o total do carrinho
+
+            updateTotal(parseFloat(price.replace('R$', '')));
+
+        }
+
+
+
+        // Função para remover produto do carrinho
+
+        function removeFromCart(item) {
+
+            // Remove o item do carrinho
+
+            item.parentNode.removeChild(item);
+
+            
+
+            // Atualiza o total do carrinho
+
+            const price = item.textContent.split(' - ')[1];
+
+            updateTotal(-parseFloat(price.replace('R$', '')));
+
+        }
+
+
+
+        // Função para atualizar o total do carrinho
+
+        function updateTotal(price) {
+
+            const cartTotal = document.getElementById('cart-total');
+
+            let currentTotal = parseFloat(cartTotal.textContent);
+
+            currentTotal += price;
+
+            cartTotal.textContent = currentTotal.toFixed(2);
+
+        }
+
+
+
+        // Evento de clique para remover item do carrinho
+
+        document.getElementById('cart-items').addEventListener('click', function(event) {
+
+            if (event.target && event.target.nodeName === 'LI') {
+
+                removeFromCart(event.target);
+
+            }
+
+        });
+
+    });
+
+</script>
+
+
+
+<script>
+
+    // Função para verificar se um elemento está visível na tela
+
+    function isElementInViewport(el) {
+
+        var rect = el.getBoundingClientRect();
+
+        return (
+
+            rect.top >= 0 &&
+
+            rect.left >= 0 &&
+
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+
+        );
+
+    }
+
+
+
+    // Função para verificar elementos visíveis e adicionar classe de animação
+
+    function handleScrollAnimation() {
+
+        var elements = document.querySelectorAll('.animated-on-scroll');
+
+        elements.forEach(function(element) {
+
+            if (isElementInViewport(element)) {
+
+                element.classList.add('fade-in');
+
+            }
+
+        });
+
+    }
+
+
+
+    // Adiciona manipulador de eventos de rolagem
+
+    window.addEventListener('scroll', handleScrollAnimation);
+
+
+
+    // Disparar manipulador de eventos uma vez na inicialização para animar elementos já visíveis
+
+    handleScrollAnimation();
+
+</script>
+
+
+
+</body>
+
+</html>
+
+        
