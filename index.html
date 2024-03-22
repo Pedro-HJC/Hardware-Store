@@ -72,6 +72,8 @@
 
             border-radius: 15%;
 
+            transition: transform 0.3s ease; /* Adiciona uma transição suave de 0.3 segundos para a propriedade transform */
+
         }
 
 
@@ -228,8 +230,6 @@
 
             opacity: 0;
 
-            animation: fadeInOut 13s infinite; /* A animação se repete infinitamente */
-
         }
 
 
@@ -265,50 +265,6 @@
                 transform: translateY(0);
 
             }
-
-        }
-
-
-
-        @keyframes scrollAnimation {
-
-            from {
-
-                opacity: 0;
-
-                transform: translateY(20px);
-
-            }
-
-            to {
-
-                opacity: 1;
-
-                transform: translateY(0);
-
-            }
-
-        }
-
-
-
-        /* Adicione a classe de animação aos elementos que deseja animar */
-
-        .animated-on-scroll {
-
-            animation: scrollAnimation 0.5s ease-out;
-
-        }
-
-
-
-
-
-        /* Adicione a classe de animação aos elementos que deseja animar */
-
-        .animated-on-scroll {
-
-            animation: scrollAnimation 0.5s ease-out;
 
         }
 
@@ -416,6 +372,14 @@
 
         /* Zoom effect */
 
+        .logo img.zoomed {
+
+            transform: scale(1.2); /* Aumenta o tamanho em 20% quando a classe zoomed é aplicada */
+
+        }
+
+
+
         .product img.zoomed {
 
             transform: scale(1.5);
@@ -436,16 +400,6 @@
 
 
 
-        .fade-in {
-
-            opacity: 0;
-
-            transition: opacity 1s ease-out;
-
-        }
-
-
-
     </style>
 
 </head>
@@ -454,15 +408,15 @@
 
 
 
-<div class="header">
+    <div class="header">
 
-    <div class="logo">
+        <div class="logo">
 
-        <img src="https://raw.githubusercontent.com/Pedro-HJC/Hardware-Store/main/logo.jpg" alt="Hardware Store Logo">
+            <img src="https://raw.githubusercontent.com/Pedro-HJC/Hardware-Store/main/logo.jpg" alt="Hardware Store Logo" id="storeLogo">
+
+        </div>
 
     </div>
-
-</div>
 
 
 
@@ -494,7 +448,7 @@
 
         <a href="#Kit Gamer">Kit Gamer</a>
 
-        <a href="#Envio Securo e Rápido">Sobre os produtos em envio</a>
+        <a href="#Envio Securo e Rápido">Sobre Produtos Enviados</a>
 
         <a href="#Fretes">Funcionamento dos Fretes</a>
 
@@ -590,7 +544,7 @@
 
             <div class="product">
 
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTfXPXkVRzoIvhxrRYysIUQBkfYufFUL2-UA&usqp=CAU" alt="placa">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTfXPXkVRzoIvhxrRYysIUQBkfYufFUL2-UA&usqp=CAU" alt="RTX 4060">
 
                 <div class="product-info">
 
@@ -910,7 +864,7 @@
 
 <div class="hardware-section comment" id="Fretes">
 
-    <h1>Sobre Nossos Fretes</h1>
+    <h1>Funcionamento dos Fretes</h1>
 
     <p> Na TimberTrack Transport, nós entendemos a importância de manter seus projetos de construção em movimento. Com uma vasta experiência no setor de transporte e logística, estamos comprometidos em fornecer serviços confiáveis e eficientes para atender às necessidades específicas da indústria de construção.
 
@@ -1092,9 +1046,17 @@
 
         productButtons.forEach(button => {
 
-            button.addEventListener('click', () => {
+            // Seleciona o elemento de preço dentro do botão
 
-                addToCart(button); // Adiciona o produto ao carrinho quando clicado
+            const priceElement = button.querySelector('.product-info p');
+
+
+
+            // Adiciona um evento de clique ao elemento de preço
+
+            priceElement.addEventListener('click', () => {
+
+                addToCart(button); // Adiciona o produto ao carrinho quando o preço é clicado
 
             });
 
@@ -1186,6 +1148,8 @@
 
 
 
+
+
 <script>
 
     // Função para verificar se um elemento está visível na tela
@@ -1239,6 +1203,108 @@
     // Disparar manipulador de eventos uma vez na inicialização para animar elementos já visíveis
 
     handleScrollAnimation();
+
+</script>
+
+
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    // Função para adicionar produto ao carrinho
+
+    function addToCart(button) {
+
+        // Cria um novo item de carrinho com base nas informações do produto
+
+        const product = button.querySelector('img').alt;
+
+        const price = button.querySelector('.product-info p').textContent;
+
+        const newItem = document.createElement('li');
+
+        newItem.textContent = `${product} - ${price}`;
+
+
+
+        // Cria um botão de remoção para o item
+
+        const removeButton = document.createElement('button');
+
+        removeButton.textContent = 'Remover';
+
+        removeButton.addEventListener('click', function() {
+
+            removeFromCart(newItem); // Remove o item quando o botão de remoção é clicado
+
+        });
+
+
+
+        // Adiciona o botão de remoção ao item do carrinho
+
+        newItem.appendChild(removeButton);
+
+        
+
+        // Adiciona o item ao carrinho
+
+        document.getElementById('cart-items').appendChild(newItem);
+
+        
+
+        // Atualiza o total do carrinho
+
+        updateTotal(parseFloat(price.replace('R$', '')));
+
+    }
+
+
+
+    // Função para remover produto do carrinho
+
+    function removeFromCart(item) {
+
+        // Remove o item do carrinho
+
+        item.parentNode.removeChild(item);
+
+        
+
+        // Atualiza o total do carrinho
+
+        const price = item.textContent.split(' - ')[1];
+
+        updateTotal(-parseFloat(price.replace('R$', '')));
+
+    }
+
+
+
+    // Restante do código permanece igual...
+
+});
+
+</script>
+
+
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+
+        const logo = document.getElementById('storeLogo');
+
+
+
+        logo.addEventListener('click', function() {
+
+            logo.classList.toggle('zoomed'); // Adiciona ou remove a classe zoomed quando a logo é clicada
+
+        });
+
+    });
 
 </script>
 
