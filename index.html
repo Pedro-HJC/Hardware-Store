@@ -40,17 +40,19 @@
 
 
 
-        body {
+body {
 
-            background-color: #ffffff;
+    background-color: #ffffff;
 
-            margin: 0;
+    margin: 0;
 
-            padding: 0;
+    padding: 0;
 
-            font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif;
 
-        }
+    overflow-x: hidden; /* Para evitar a barra de rolagem horizontal */
+
+}
 
 
 
@@ -234,6 +236,14 @@
 
 
 
+        .comment p {
+
+            margin-left: 10px; /* Adiciona uma margem à esquerda para distanciar o texto do ícone */
+
+        }
+
+
+
         /* Estilos CSS para o autor do comentário */
 
         .comment p.author {
@@ -273,6 +283,14 @@
         .comment {
 
             transition: opacity 0.5s ease;
+
+        }
+
+
+
+        .comment {
+
+            margin-left: 20px; /* Adiciona uma margem à esquerda para distanciar o ícone */
 
         }
 
@@ -448,7 +466,7 @@
 
         <a href="#Kit Gamer">Kit Gamer</a>
 
-        <a href="#Envio Securo e Rápido">Sobre Produtos Enviados</a>
+        <a href="#Envio Securo e Rápido">Sobre os produtos em envio</a>
 
         <a href="#Fretes">Funcionamento dos Fretes</a>
 
@@ -544,7 +562,7 @@
 
             <div class="product">
 
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTfXPXkVRzoIvhxrRYysIUQBkfYufFUL2-UA&usqp=CAU" alt="RTX 4060">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTfXPXkVRzoIvhxrRYysIUQBkfYufFUL2-UA&usqp=CAU" alt="placa">
 
                 <div class="product-info">
 
@@ -864,7 +882,7 @@
 
 <div class="hardware-section comment" id="Fretes">
 
-    <h1>Funcionamento dos Fretes</h1>
+    <h1>Sobre Nossos Fretes</h1>
 
     <p> Na TimberTrack Transport, nós entendemos a importância de manter seus projetos de construção em movimento. Com uma vasta experiência no setor de transporte e logística, estamos comprometidos em fornecer serviços confiáveis e eficientes para atender às necessidades específicas da indústria de construção.
 
@@ -904,61 +922,63 @@
 
 
 
-        <div class="content">
+<div class="content">
 
-            <!-- Seção de Comentários -->
+    <!-- Seção de Comentários -->
 
-            <div class="hardware-section" id="comentarios">
+    <div class="hardware-section" id="comentarios">
 
-                <h1>Comentários de Clientes</h1>
+        <h1>Comentários de Clientes</h1>
 
-                <!-- Adicione a classe "comment" para cada comentário -->
+        <!-- Adicione a classe "comment" para cada comentário -->
 
-                <div class="comment">
+        <div class="comment">
 
-                    <p>Excelente loja! Processadores TOP DEMAIS!</p>
+            <p><i class="fas fa-user"></i> Excelente loja! Processadores TOP DEMAIS!</p>
 
-                    <p class="author">- João Silva</p>
-
-                </div>
-
-                <div class="comment">
-
-                    <p>Atendimento excepcional! Chegou em 2 dias minhas peças</p>
-
-                    <p class="author">- Maria Oliveira</p>  
-
-                </div>
-
-                <div class="comment">
-
-                    <p>Incrível! Produtos de ótimos para um PC Gamer</p>
-
-                    <p class="author">- Frank Alves</p>  
-
-                </div>
-
-                <div class="comment">
-
-                    <p>Produtos bem baratos e ótimos</p>
-
-                    <p class="author">- Pedro Linboa</p>  
-
-                </div>
-
-                <div class="comment">
-
-                    <p>Agora posso jogar Devil May Cry 5 com rtx!</p>
-
-                    <p class="author">- Vergil</p>  
-
-                </div>
-
-                <!-- Adicione mais comentários conforme necessário -->
-
-            </div>
+            <p class="author">- João Silva</p>
 
         </div>
+
+        <div class="comment">
+
+            <p><i class="fas fa-user"></i> Atendimento excepcional! Chegou em 2 dias minhas peças</p>
+
+            <p class="author">- Maria Oliveira</p>  
+
+        </div>
+
+        <div class="comment">
+
+            <p><i class="fas fa-user"></i> Incrível! Produtos de ótimos para um PC Gamer</p>
+
+            <p class="author">- Frank Alves</p>  
+
+        </div>
+
+        <div class="comment">
+
+            <p><i class="fas fa-user"></i> Produtos bem baratos e ótimos</p>
+
+            <p class="author">- Pedro Linboa</p>  
+
+        </div>
+
+        <div class="comment">
+
+            <p><i class="fas fa-user"></i> Agora posso jogar Devil May Cry 5 com rtx!</p>
+
+            <p class="author">- Vergil</p>  
+
+        </div>
+
+        <!-- Adicione mais comentários conforme necessário -->
+
+    </div>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</div>
 
         
 
